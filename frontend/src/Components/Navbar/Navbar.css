@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.link-tag {
+    text-decoration: none;
+    text-underline-offset: 8px;
+    color: inherit;
+}
+
+.line {
+    margin-top: -12px;
+    text-decoration: underline;
+    text-decoration-color: tomato;
+    text-decoration-thickness: 3px;   
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.primary-button {
+    max-width: 130px;
+    background-color: white;
+    color: grey;
+    font-size: 16px;
+    border: 1px solid grey;
+    padding: 10px 40px;
+    border-radius: 50px;
+    cursor: pointer; 
+    transition: all 0.3s ease;
+}
+
+.navbar-container{
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.navbar-image {
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav-ul{
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-ul li {
+    cursor: pointer;
+} 
+
+.nav-button{
+    gap: 30px;
+}
+
+.nav-button-image {
+    cursor: pointer;
+}
+
+.cart-counter {
+    font-size: 15px;
+    font-weight: 600;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    margin-top: -28px;
+    margin-left: -42px;
+    padding-top: 1px;
+    cursor: pointer;
+}

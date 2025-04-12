@@ -33,6 +33,7 @@ router.post("/create",
         name: req.body.name,
         email: req.body.email,
         password: securePassword,
+        roleId:1
       });
 
       // retreive the user.id to search uniquely in the db.

@@ -1,10 +1,10 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../db"); // Import your Sequelize connection
 
-const Product = connection.define("Product",{
+const Product = connection.define("Product", {
     id: {
-      type: DataTypes.UUID, // Universally Unique Identifier
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
     },
     name: {
@@ -29,15 +29,19 @@ const Product = connection.define("Product",{
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    available: {
-      type: DataTypes.BOOLEAN,
+    quantity: {
+      type: DataTypes.DECIMAL,
+      allowNull: true,
+      defaultValue: 0,
+    },
+    isNewLaunch: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: true,
     },
   },
   {
     tableName: "Product", // Explicit table name
-    // timestamps: false, // restrict the columns(createdAt,updatedAt)
+    timestamps: true, // Automatically adds createdAt and updatedAt
   }
 );
 

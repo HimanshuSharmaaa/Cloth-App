@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.AdminNavbar-section{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.AdminNavbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 8px;
+}
+
+.AdminNavbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.AdminNavbar-left img{
+    width: 50px;
+}
+
+.AdminNavbar-left img{
+    width: 70px;
+}
+
+.AdminNavbar-heading p{
+    color: rgb(243, 89, 24);
+}
+
+.AdminNavbar-right img{
+    width: 60px;
+    border-radius: 50%;
+}

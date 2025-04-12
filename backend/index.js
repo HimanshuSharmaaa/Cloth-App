@@ -5,7 +5,6 @@ const path = require("path");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-
 // Load environment variables from .env.local
 const dotenvResult = dotenv.config({ path: ".env.local" });
 if (dotenvResult.error) console.error("⚠️ Failed to load .env.local file");
@@ -19,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // urlencoded helps to parse the form-data
-// You're using extended: false, which limits nested object parsing.
+// We using extended: false, which limits nested object parsing.
 // If you're using form data with deeply nested objects, change to true:
 app.use(express.urlencoded({extended:true}));
 
@@ -32,17 +31,20 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));// Serve im
 
 // Avaliable routes
 app.use("/api/auth", require("./Routes/auth"));
-app.use("/api/sendEmail", require("./Routes/sendEmail"));
-app.use("/api/product", require("./Routes/product"));
 app.use("/uploads", require("./Routes/upload"));
-
+app.use("/offer", require("./Routes/offer"));
+app.use("/order", require("./Routes/order"));
+app.use("/cart", require("./Routes/cart"));
+app.use("/api/product", require("./Routes/product"));
+app.use("/api/sendEmail", require("./Routes/sendEmail"));
+app.use("/api/adminLogin", require("./Routes/adminLogin"));
 
 app.get("/", (req, res) => {
   res.send("Cloth-App server is live.");
 });
 
 // Sync DB with node server
-connection.sync().then(() => console.log("db synced")).catch((err) => console.log("error: ", err));
+connection.sync().then(() => console.log("db synced")).catch((err) => console.log("Errors: ", err));
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "404 Page Not Found" });

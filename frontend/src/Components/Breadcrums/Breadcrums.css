@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.product-page-container {
+    width: 1200px;
+    color: grey;
+    margin-top: 20px;
+}
+
+.breadcrum-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.breadcrum-container img{
+    width: 6px;
+}

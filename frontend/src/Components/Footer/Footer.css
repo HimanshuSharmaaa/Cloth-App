@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    /* position: sticky; */
+    /* bottom: 0; */
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    align-items: center;
+}
+
+.footer-head-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-container-image {
+    width: 100px;
+}
+
+.footer-container-lists{
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+}
+
+.footer-container-lists li{
+    list-style: none;
+    cursor: pointer;
+}
+
+.footer-container-companies {
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+}
+
+.footer-container-companies li{
+    list-style: none;
+    cursor: pointer;
+}
+
+.footer-container hr{ 
+    margin-top: 50px;
+    width: 1200px;
+    height: 2px;
+    border-radius: 8px;
+    background-color: grey;
+}
+
+.footer-container-copyright {
+    margin-block: 50px;
+}

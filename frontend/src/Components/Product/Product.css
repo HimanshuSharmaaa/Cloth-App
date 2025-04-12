@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.product-section {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-section hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    border: none;
+    background-color: #252525;
+}
+
+.product-container{
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+}

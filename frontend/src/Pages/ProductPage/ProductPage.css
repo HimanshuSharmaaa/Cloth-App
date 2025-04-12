@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.product-page {
+    width: 1200px;
+    display: flex;
+    margin-inline: auto;
+    flex-direction: column;
+    gap: 30px;
+}

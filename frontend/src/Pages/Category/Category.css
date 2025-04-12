@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.category-container {
+    width: 1200px;
+    margin-top: 30px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.category-container-image img{
+    width: 1200px;
+}
+
+.category-container-sort{
+    color: grey;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-container-sort b{
+    color: black;
+}
+
+.category-container-sort-image {
+    width: 200px;
+}
+
+.category-container-sort-button {
+    border: 1px solid grey;
+    padding: 10px 30px;
+    border-radius: 25px 25px 25px 25px;
+    cursor: pointer;
+}
+
+.category-container-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+}

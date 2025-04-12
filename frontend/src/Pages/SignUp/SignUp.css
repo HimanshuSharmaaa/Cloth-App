@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signUp-container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5e3e8;
+}
+
+.signUp-card-container{
+    width: 420px;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 2px 8px grey;
+}
+
+.input {
+    color: grey;
+    height: 50px;
+    font-size: 14px;
+    padding-left: 15px;
+    outline: none;
+}
+
+.button{
+    font-size: 18px;
+    color: white;
+    background-color: tomato;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-checkbox {
+    font-size: 15px;
+}
+
+.signUp-link {
+    text-decoration: none;
+    color: tomato;
+}
+
+.input-switch-button{
+    color: tomato;
+    cursor: pointer;
+}

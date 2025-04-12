@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.addproduct-container {
+    width: 82%;
+    color: grey;
+    background-color: rgb(236, 233, 233);
+    overflow: hidden;
+}
+
+.addproduct {
+    margin-top: 25px;
+    width: 90%;
+    height: 91%;
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    background-color: white;
+    padding: 10px 50px;
+    gap: 18px;
+}
+
+.product-title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 22px;
+}
+
+.admin-input {
+    margin-top: 5px;
+    padding: 5px 5px;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    color: grey;
+    outline: none;
+}
+
+.flex-justify {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    justify-content: space-between;
+}
+
+.upload_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.launch-container {
+    display: flex;
+    width: 50%;
+    align-items: end;
+}
+
+.upload-image {
+    width: 210px;
+    height: 251px;
+}
+
+.product-button {
+    width: 210px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    background-color: #1E90FF;
+}
+
+.product-button-backgroundColor {
+    cursor: pointer;
+    background-color: #3B7FDD;
+}
+
+.launch-input {
+    width: 205px;
+}
+
+.launch-label {
+    margin-right: 52px;
+}
+
+.brand-label {
+    margin-right: 77px;
+    margin-top: 25px;
+}

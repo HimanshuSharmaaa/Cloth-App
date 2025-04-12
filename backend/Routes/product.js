@@ -15,7 +15,6 @@ router.get('/fetchAllProduct',async(req,res) => {
   }
 });
 
-
 // Create new product
 router.post("/add",[
     body("name", "Enter a valid name.").isLength({ min: 3 }),
@@ -38,9 +37,11 @@ router.post("/add",[
         category: req.body.category,
         new_price: req.body.new_price,
         old_price: req.body.old_price,
-        available: req.body.available,
+        quantity: req.body.quantity,
+        isNewLaunch : req.body.launch
       });
 
+      console.log(newProduct);
       // send user to successfully login.
       res.json({success:true,message:'Successfully Product Added in Cloth-App Databse.',status: 200,result:newProduct});
     } catch (error) {
@@ -50,15 +51,12 @@ router.post("/add",[
   }
 );
 
-// delete existing product
+// Delete existing product
 router.delete('/delete/:id',  async(req,res)=>{
   try {
     console.log(req.params.id);
     const presentProduct = await Product.findByPk(req.params.id); //Get id from URL parameter & find the product by primary key(id)
     if(!presentProduct) return res.status(400).send({success:false,status:404,message:"Product Not Found",result:""});
-
-    // Check the User is authentiraised or not
-    // if(presentProduct.id != req.user.id) return res.status(401).send({success:false,status:401,message:"Not Allowed",result:""});
 
     await presentProduct.destroy();
     // if(!result) return res.status(400).send({success:false,status:400,message:'Product not Deleted',result:result});
@@ -83,9 +81,11 @@ router.put('/updateProduct/:id',async(req,res) => {
       presentProduct.category = req.body.category,
       presentProduct.new_price = req.body.new_price,
       presentProduct.old_price = req.body.old_price,
-      presentProduct.available = req.body.available,
+      presentProduct.quantity = req.body.quantity,
+      isNewLaunch = req.body.launch,
       presentProduct.updatedAt = Date.now()
     }
+    
     let pro = await presentProduct.save(); // saves changes
     res.json({success:true,status:200,message:"Successfully Product Updated From DB.",result:pro});
   } catch (error) {

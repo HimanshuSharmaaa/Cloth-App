@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.description-container-heading {
+    margin-top: 50px;
+    display: flex;
+}
+
+.description-name , .rating-name {
+    border: 1px solid grey;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.description-container {
+    
+    border: 1px solid grey;
+    padding: 10px 20px;
+}
