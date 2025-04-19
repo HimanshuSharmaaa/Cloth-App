@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../Model/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const fetchUser = require('../Middleware/fetchUser');
 const { body, validationResult } = require("express-validator");
 
 // Create User
@@ -69,12 +70,12 @@ router.post('/login',
       if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
       // check E-mail is already registered or not
-      let { email } = req.body;
+      let { email, password } = req.body;
       const user = await User.findOne({ where: { email } });
       if (!user) return res.status(400).json({success: false,message: `Error: The email ${email} is not registered.`,status: 400,result: ""});
       
       // Verify token with the user sent password and user stored password in db
-      const token = await bcrypt.compare(req.body.password, user.password);
+      const token = await bcrypt.compare(password, user.password);
       if (!token) return res.status(400).json({ success:false, message:'The Password Not Matched.', status:400, result:""});
 
       const data = {
@@ -95,5 +96,18 @@ router.post('/login',
     }
   }
 )
+
+// Router : 3 Get user info
+router.get('/', fetchUser, async(req,res)=>{
+  try {
+    const userInfo = await User.findByPk(req.user.id);
+    if(!userInfo) return res.status(404).json({ success: false, message: 'User not found', status: 404 });
+    res.json({ success: true, message: 'UserInfo Fetched Successfully.', status: 200, result:userInfo});
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({success: false, message: 'Error: Internal server error occur.', status: 400, result: error.message
+    });
+  }
+})
 
 module.exports = router;

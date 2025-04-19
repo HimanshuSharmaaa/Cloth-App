@@ -1,14 +1,20 @@
-import "./Loader.css";
+import { useContext } from "react";
+import FadeLoader from "react-spinners/FadeLoader";
+import { ShopContext } from "../../Context/ShopContext";
 
-const Loader = ({ load }) => {
-  if (load !== 0) {
-    return (
-      <div className={`outer ${load===100?"display":""}`}>
-        <div className='inner' role="progressbar"
-          style={{ transform: `translateX(${load - 100}%)` }} aria-valuemax="100" aria-valuemin="0" aria-valuenow={load}></div>
-      </div>
-    );
-  }
+const override = {
+  display: "block",
+  margin: "60px auto",
+  borderColor: "red",
 };
+
+function Loader() {
+  const { loading } = useContext(ShopContext);
+  return (
+    <div className="sweet-loading">
+    <FadeLoader color={'grey'} loading={loading} cssOverride={override} size={100} aria-label="Loading Spinner" data-testid="loader"/>
+    </div>
+  );
+}
 
 export default Loader;

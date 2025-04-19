@@ -1,29 +1,31 @@
 import "./App.css";
-import { useState } from "react";
 import Home from "./Pages/Home/Home";
 import Cart from './Pages/Cart/Cart.jsx';
+import { useContext } from "react";
 import SignUp from "./Pages/SignUp/SignUp.jsx";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
-import Loader from "./Components/Loader/Loader.jsx";
 import Category from './Pages/Category/Category.jsx';
 import { ToastContainer, toast } from "react-toastify";
+import { ShopContext } from "./Context/ShopContext.jsx";
 import men_banner from './Components/Assets/banner_mens.png';
 import kids_banner from './Components/Assets/banner_kids.png';
 import ProductPage from "./Pages/ProductPage/ProductPage.jsx";
 import women_banner from './Components/Assets/banner_women.png';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProgressBar from './Components/ProgreesBar/ProgressBar.jsx';
 
 const App = () => {
+  const { progress } = useContext(ShopContext);
   const notify = (arg) => toast(arg);
-  const [load, setLoad] = useState(0);
+
   return (
     <div>
     <BrowserRouter>
+        <ProgressBar progress={progress}/>
         <Navbar notify={notify}/>
-        <Loader load={load}/>
         <Routes>
-          <Route path="/" element={<Home setLoad={setLoad} notify={notify}/>}/>
+          <Route path="/" element={<Home notify={notify}/>}/>
           <Route path="/men" element={<Category banner={men_banner} category="Men" notify={notify}/> }/>
           <Route path="/women" element={<Category banner={women_banner} category="Women" notify={notify}/> }/>
           <Route path="/kids" element={<Category banner={kids_banner} category="Kid" notify={notify}/> }/>

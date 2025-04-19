@@ -50,14 +50,7 @@ const UserState = (props) => {
   };
 
   return (
-    <UserContext.Provider
-      value={{
-        createUserState,
-        loginUserState,
-        isAuthenticated,
-        setIsAuthenticated,
-      }}
-    >
+    <UserContext.Provider value={{createUserState,loginUserState,isAuthenticated,setIsAuthenticated}}>
       {props.children}
     </UserContext.Provider>
   );

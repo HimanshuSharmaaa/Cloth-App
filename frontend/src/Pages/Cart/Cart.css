@@ -5,7 +5,7 @@
 }
 
 .cartItems {
-    margin: 30px 120px;
+    margin: 20px 120px;
 }
 
 .cartItems hr {
@@ -36,7 +36,7 @@
 
 .cartItem-product-remove-icon {
     width: 15px;
-    margin: 0px 40px;
+    margin: 0px 25px;
     cursor: pointer;
 }
 
@@ -85,6 +85,7 @@
     flex-direction: column;
     font-size: 14px;
     color: grey;
+    padding-left: 120px;
 }
 
 .input-promoCode-container {
@@ -136,6 +137,7 @@
     text-align: center;
     border-radius: 25px;
     cursor: pointer;
+    padding: 0px 5px;
 }
 
 .notActive{
@@ -146,5 +148,6 @@
     text-align: center;
     border-radius: 25px;
     text-decoration: line-through;
-    background-color: rgb(247, 132, 132);;
+    background-color: rgb(247, 132, 132);
+    padding: 0px 5px;
 }

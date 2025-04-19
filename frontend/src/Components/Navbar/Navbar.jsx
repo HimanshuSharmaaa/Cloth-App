@@ -9,14 +9,22 @@ import "./Navbar.css";
 const Navbar = ({notify}) => {
   let naviagte = useNavigate();
   let location = useLocation();
-  let {setIsAuthenticated} = useContext(UserContext);
-  let {getTotalCartItems} = useContext(ShopContext);
+  let { setIsAuthenticated } = useContext(UserContext);
+  let { cartQuantityTotal, getTotalCartItems, cartItems, getTotalAmountCart } = useContext(ShopContext);
 
   useEffect(() => {
   }, [location]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      await getTotalCartItems();
+      await getTotalAmountCart();
+    };
+    fetchData();
+  }, [cartItems]);
+
   const handleClick = () => {
-    if(Number(getTotalCartItems()) === 0) notify("Add items to visit the cart.");
+    if(!cartQuantityTotal) notify("Add items to visit the cart.");
     else naviagte('/cart');
   }
   
@@ -47,7 +55,7 @@ const Navbar = ({notify}) => {
         <div className="nav-button flex">
           {localStorage.getItem('token')?<button className="primary-button" onClick={handleLogout}>LogOut</button>:<Link to="/login" className="link-tag"><button className="primary-button">Login</button></Link>}
           <div onClick={handleClick} className="link-tag"><img src={cart_icon} alt="cart_icon" className="nav-button-image"/></div>
-          <div onClick={handleClick} className="cart-counter">{getTotalCartItems()>9 ? "9+" : getTotalCartItems()}</div>
+          <div onClick={handleClick} className="cart-counter">{cartQuantityTotal>9?'9+':cartQuantityTotal}</div>
         </div>
       </div>
     </div>

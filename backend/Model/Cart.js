@@ -5,14 +5,13 @@ const Product = require("./Product");
 
 const Cart = connection.define("Cart", {
     id: {
-      type: DataTypes.UUID, // Unique ID
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
     },
     quantity: {
       type: DataTypes.INTEGER,
-      defaultValue: 0,
+      defaultValue: 1,
       allowNull: true,
     },
     product_id: {
@@ -27,7 +26,7 @@ const Cart = connection.define("Cart", {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: User,
         key: 'id'
       }
     }
@@ -39,7 +38,7 @@ const Cart = connection.define("Cart", {
 );
 
 // Define the relationship
-Cart.belongsTo(User, { foreignKey: "user_id" });
-Cart.belongsTo(Product, { foreignKey: "product_id" });
+Cart.belongsTo(User, { foreignKey: "user_id", onDelete: "CASCADE" });
+Cart.belongsTo(Product, { foreignKey: "product_id", onDelete: "CASCADE" });
 
 module.exports = Cart;

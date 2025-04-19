@@ -1,19 +1,42 @@
-import React, { useContext, useEffect, useRef } from "react";
-import IndividualProuct from "../../Components/IndividualProduct/IndividualProduct";
-import { ShopContext } from "../../Context/ShopContext";
-import dropdown_icon from "../../Components/Assets/dropdown_icon.png";
 import "./Category.css";
+import { ShopContext } from "../../Context/ShopContext";
+import React, { useContext, useEffect, useRef } from "react";
+import dropdown_icon from "../../Components/Assets/dropdown_icon.png";
+import IndividualProduct from "../../Components/IndividualProduct/IndividualProduct";
 
 const Category = ({ banner, category, notify }) => {
-  const { allProduct } = useContext(ShopContext);
-  const prevCategory = useRef(null); // Store previous category
+  const { allProduct, setProgress } = useContext(ShopContext);
+  const prevCategory = useRef(category); // Store previous category value
 
   useEffect(() => {
+    setProgress(30); // Start progress bar
+
+    const step1 = setTimeout(() => {
+      setProgress(70); // Midway visual
+    }, 200);
+
+    const step2 = setTimeout(() => {
+      setProgress(100); // Complete progress
+    }, 600);
+
+    const reset = setTimeout(() => {
+      setProgress(0); // Reset for future use
+    }, 1200);
+
+    // Notify user when category changes
     if (prevCategory.current !== category) {
       notify(`Welcome in ${category} category.`);
-      prevCategory.current = category; // Update previous category
+      prevCategory.current = category; // Update prevCategory reference
     }
-  }, [category, notify]);
+
+    // Cleanup the timeouts
+    return () => {
+      clearTimeout(step1);
+      clearTimeout(step2);
+      clearTimeout(reset);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]); // Effect depends only on `category` and `notifyUser`
 
   return (
     <div className="category-container">
@@ -33,7 +56,7 @@ const Category = ({ banner, category, notify }) => {
         {allProduct.map((item) => {
           if (category === item.category) {
             return (
-              <IndividualProuct
+              <IndividualProduct
                 key={item.id}
                 id={item.id}
                 img={item.image}
